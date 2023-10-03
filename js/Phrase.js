@@ -31,7 +31,7 @@ class Phrase {
             } 
         };
         return phraseUL;
-    }
+    };
 
     /**
      * Checks if passed letter is in phrase
@@ -40,7 +40,7 @@ class Phrase {
     checkLetter(letter) {
         return this.phrase.includes(letter);
 
-    }
+    };
 
     /**
      * Displays passed letter on screen after a match is found 
@@ -48,12 +48,14 @@ class Phrase {
      */
     showMatchedLetter(letter) {
         const isMatch = this.checkLetter(letter);
-        if (isMatch) {
-            const matchedLetter = document.querySelector(`.${letter}`);
-            matchedLetter.classList.remove("hide");
-            matchedLetter.classList.add("show");
-            
-        }
+        const matchedLetters = document.querySelectorAll(`.${letter}`);
+
+        matchedLetters.forEach(letter => {
+            if (isMatch) {
+                letter.classList.remove("hide");
+                letter.classList.add("show");
+            }
+        })
     };
 };
 
