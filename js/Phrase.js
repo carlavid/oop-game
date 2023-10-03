@@ -26,11 +26,34 @@ class Phrase {
                 li.className = "space";
                 li.textContent = " ";
             } else if (char !== " ") {
-                li.className = `hide letter ${char}`;
+                li.classList.add("hide", "letter", char);
                 li.textContent = char;
             } 
         };
         return phraseUL;
     }
+
+    /**
+     * Checks if passed letter is in phrase
+     * @param {string} letter - Letter to check
+     */
+    checkLetter(letter) {
+        return this.phrase.includes(letter);
+
+    }
+
+    /**
+     * Displays passed letter on screen after a match is found 
+     * @param {string} letter - Letter to display
+     */
+    showMatchedLetter(letter) {
+        const isMatch = this.checkLetter(letter);
+        if (isMatch) {
+            const matchedLetter = document.querySelector(`.${letter}`);
+            matchedLetter.classList.remove("hide");
+            matchedLetter.classList.add("show");
+            
+        }
+    };
 };
 
