@@ -86,4 +86,13 @@ class Game {
             gameOverMsg.textContent = "Sorry you lose! Better luck next time!";
         }
     };
+
+    /**
+    * Handles onscreen keyboard button clicks
+    * @param {HTMLButtonElement} button - The clicked button element
+    */
+    handleInteraction(button) {
+        console.log(button);
+    };
+    
 }
