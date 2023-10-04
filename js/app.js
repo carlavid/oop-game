@@ -15,7 +15,6 @@ startBtn.addEventListener("click", () => {
     game.startGame();
 });
 
-
 /**
  * Event listener to handle clicks on any of the onscreen keyboard buttons
  */
@@ -23,15 +22,17 @@ buttons = document.querySelectorAll("button.key");
 buttons.forEach(button => {
     button.addEventListener("click", e => {
         button = e.target;
-        game.handleInteraction(button);
-    })
+        game.handleInteraction(button)
+    });   
 });
 
 /**
- * Event listener to prevent space bar from triggering clicks
+ * Event listener to handle user entering guesses with keyboard keys
  */
 document.addEventListener("keydown", e => {
-    if (e.code === "Space") {
-        e.preventDefault();
-    }
-})
+    buttons.forEach(button => {
+        if (e.key === button.innerHTML) {
+            game.handleInteraction(button);
+        };
+    })
+});
