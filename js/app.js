@@ -13,4 +13,25 @@ const startBtn = document.querySelector("#btn__reset");
 startBtn.addEventListener("click", () => {
     game = new Game();
     game.startGame();
+});
+
+
+/**
+ * Event listener to handle clicks on any of the onscreen keyboard buttons
+ */
+buttons = document.querySelectorAll("button.key");
+buttons.forEach(button => {
+    button.addEventListener("click", e => {
+        button = e.target;
+        game.handleInteraction(button);
+    })
+});
+
+/**
+ * Event listener to prevent space bar from triggering clicks
+ */
+document.addEventListener("keydown", e => {
+    if (e.code === "Space") {
+        e.preventDefault();
+    }
 })
