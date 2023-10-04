@@ -76,15 +76,17 @@ class Game {
         const overlay = document.querySelector("#overlay");
         const gameOverMsg = document.querySelector("#game-over-message");
         overlay.style.display = "block";
-        overlay.classList.remove("start");
+        overlay.classList.remove("start", "lose", "win");
         
         if (gameWon) {
             overlay.classList.add("win");
             gameOverMsg.textContent = "Yay you win!";
         } else if (!gameWon) {
-            overlay.classList.add("lose", "a");
+            overlay.classList.add("lose");
             gameOverMsg.textContent = "Sorry you lose! Better luck next time!";
         }
+        this.resetGame();
+
     };
 
     /**
@@ -92,7 +94,36 @@ class Game {
     * @param {HTMLButtonElement} button - The clicked button element
     */
     handleInteraction(button) {
-        console.log(button);
+        let currentPhrase = this.activePhrase.phrase;
+        button.disabled = true;
+
+        if (!currentPhrase.includes(button.innerHTML)) {
+            button.classList.add("wrong");
+            this.removeLife();
+        } else if (currentPhrase.includes(button.innerHTML)) {
+            button.classList.add("chosen");
+            game.activePhrase.showMatchedLetter(button.innerHTML);
+            if (this.checkForWin()) {
+                this.gameOver(true);
+            };
+        } 
+    }
+
+    /**
+     * Handles resetting the game 
+     */
+    resetGame() {
+        const phraseLI = document.querySelector("#phrase").firstElementChild;
+        const lostHearts = document.querySelectorAll("img[src='images/lostHeart.png']");
+        phraseLI.innerHTML = "";
+        
+        buttons.forEach(button => {
+            button.disabled = false;
+            button.classList.remove("chosen", "wrong");
+        });
+
+        lostHearts.forEach(heart => {
+            heart.src = "images/liveHeart.png";
+        })
     };
-    
-}
+};
