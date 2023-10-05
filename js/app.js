@@ -33,7 +33,7 @@ document.addEventListener("keydown", e => {
         if (button.disabled) {
             e.preventDefault();
             return;
-        } else if (e.key === button.innerHTML) {
+        } else if (e.key.toLowerCase() === button.innerHTML) {
             game.handleInteraction(button);
         }
     });
