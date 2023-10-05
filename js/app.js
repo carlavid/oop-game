@@ -38,3 +38,12 @@ document.addEventListener("keydown", e => {
         }
     });
 });
+
+/**
+ * Animate game over message
+ */
+const gameOverMsg = document.querySelector("#game-over-message");
+
+setInterval(() => {
+    gameOverMsg.style.visibility = (gameOverMsg.style.visibility === 'hidden' ? 'visible' : 'hidden');
+}, 500);
