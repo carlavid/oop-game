@@ -19,7 +19,7 @@ class Game {
         ];
         this.activePhrase = null;
     }
-
+    
     /**
      * Selects random phrase from phrases property
      * @return {Object} Phrase object chosen to be used
@@ -75,7 +75,6 @@ class Game {
     gameOver(gameWon) {
         const overlay = document.querySelector("#overlay");
         const gameOverMsg = document.querySelector("#game-over-message");
-        overlay.style.display = "block";
         overlay.classList.remove("start", "lose", "win");
         
         if (gameWon) {
@@ -85,6 +84,7 @@ class Game {
             overlay.classList.add("lose");
             gameOverMsg.textContent = "Sorry you lose! Better luck next time!";
         }
+        overlay.style.display = "flex";
         this.resetGame();
 
     };
@@ -124,6 +124,6 @@ class Game {
 
         lostHearts.forEach(heart => {
             heart.src = "images/liveHeart.png";
-        });
+        })
     };
 };
