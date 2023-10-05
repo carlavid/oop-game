@@ -20,7 +20,7 @@ const buttons = document.querySelectorAll("button.key");
 buttons.forEach(button => {
     button.addEventListener("click", e => {
         button = e.target;
-        game.handleInteraction(button)
+        game.handleInteraction(button);
     });   
 });
 
@@ -30,8 +30,11 @@ buttons.forEach(button => {
  */
 document.addEventListener("keydown", e => {
     buttons.forEach(button => {
-        if (e.key === button.innerHTML) {
+        if (button.disabled) {
+            e.preventDefault();
+            return;
+        } else if (e.key === button.innerHTML) {
             game.handleInteraction(button);
-        };
-    })
+        }
+    });
 });
