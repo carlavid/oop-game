@@ -3,17 +3,15 @@
  * app.js */
 
 /**
- * create a new instance of the Game class and add event 
- * listeners for the start button and onscreen keyboard buttons
+ * Event listener to handle clicks on the start button
  */
-
 let game;
-
 const startBtn = document.querySelector("#btn__reset");
 startBtn.addEventListener("click", () => {
     game = new Game();
     game.startGame();
 });
+
 
 /**
  * Event listener to handle clicks on any of the onscreen keyboard buttons
@@ -25,6 +23,7 @@ buttons.forEach(button => {
         game.handleInteraction(button)
     });   
 });
+
 
 /**
  * Event listener to handle user entering guesses with keyboard keys
