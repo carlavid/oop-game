@@ -16,7 +16,7 @@ startBtn.addEventListener("click", () => {
 /**
  * Event listener to handle clicks on any of the onscreen keyboard buttons
  */
-buttons = document.querySelectorAll("button.key");
+const buttons = document.querySelectorAll("button.key");
 buttons.forEach(button => {
     button.addEventListener("click", e => {
         button = e.target;
