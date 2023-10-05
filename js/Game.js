@@ -15,7 +15,7 @@ class Game {
             new Phrase("Just keep swimming"),
             new Phrase("Hasta la vista baby"),
             new Phrase("To infinity and beyond"),
-            new Phrase("Not my gumdrop buttons")
+            new Phrase("Not my gumdrop buttons"),
         ];
         this.activePhrase = null;
     }
@@ -79,10 +79,10 @@ class Game {
         
         if (gameWon) {
             overlay.classList.add("win");
-            gameOverMsg.textContent = "Yay you win!";
+            gameOverMsg.textContent = "🎉 You got it! 🎉";
         } else if (!gameWon) {
             overlay.classList.add("lose");
-            gameOverMsg.textContent = "Sorry you lose! Better luck next time!";
+            gameOverMsg.textContent = "Sorry, better luck next time! 😄";
         }
         overlay.style.display = "flex";
         this.resetGame();
@@ -96,6 +96,7 @@ class Game {
     handleInteraction(button) {
         let currentPhrase = this.activePhrase.phrase;
         button.disabled = true;
+        button.style.cursor = "default";
 
         if (!currentPhrase.includes(button.innerHTML)) {
             button.classList.add("wrong");
