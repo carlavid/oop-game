@@ -3,7 +3,7 @@
  * Game.js */
 
 /**
- * define a Game class with methods to control
+ * Define Game class with methods to control
  * the flow and state of the game
  */
 
@@ -18,8 +18,8 @@ class Game {
             new Phrase("Not my gumdrop buttons")
         ];
         this.activePhrase = null;
-
     }
+
     /**
      * Selects random phrase from phrases property
      * @return {Object} Phrase object chosen to be used
@@ -124,6 +124,6 @@ class Game {
 
         lostHearts.forEach(heart => {
             heart.src = "images/liveHeart.png";
-        })
+        });
     };
 };
