@@ -20,7 +20,7 @@
 
 * {
   box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Orbitron', sans-serif;
 }
 
 body {
@@ -64,6 +64,17 @@ button {
 	width: 200px;
 	margin: 0 auto;
 }
+
+#btn__reset, .key{
+  box-shadow: 0 5px #666;
+}
+
+#btn__reset:active {
+  background-color: rgb(75, 159, 212);
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
 
 .main-container {
   display: flex;
