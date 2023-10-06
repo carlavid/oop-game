@@ -29,6 +29,9 @@ buttons.forEach(button => {
  * Event listener to handle user entering guesses with keyboard keys
  */
 document.addEventListener("keydown", e => {
+    if (document.querySelector("#overlay").style.display !== "none") {
+        return;
+    };
     buttons.forEach(button => {
         if (button.disabled) {
             e.preventDefault();
